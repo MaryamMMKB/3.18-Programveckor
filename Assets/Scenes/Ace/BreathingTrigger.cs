@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class BreathingTrigger : MonoBehaviour
 {
@@ -12,5 +12,5 @@ public class BreathingTrigger : MonoBehaviour
             gameObject.SetActive(false);
         }
     }     
-}
+}*/
 
