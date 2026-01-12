@@ -12,7 +12,8 @@ public class CameraShake : MonoBehaviour
 
     public IEnumerator Shake(float intensity)
     {
-        white(true){
+        while (true)
+        {
             transform.localPosition = startPos + Random.insideUnitSphere * intensity;
             yield return null;
         }
@@ -23,5 +24,4 @@ public class CameraShake : MonoBehaviour
         StopAllCoroutines();
         transform.localPosition = startPos;
     }
-    
 }
