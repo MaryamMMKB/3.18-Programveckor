@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0
+  m_FogDensity: 0.064
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -1765,8 +1765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6425cc87f7a554b942fb763f8b259d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiaryInteractable
-  shortComment: Finally
-  diaryEntry: Last cube found
+  shortComment: 
+  diaryEntry: 
   alreadyReadComment: ...
 --- !u!1 &917775963
 GameObject:
@@ -2538,8 +2538,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6425cc87f7a554b942fb763f8b259d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiaryInteractable
-  shortComment: ANOTHER BOx
-  diaryEntry: Incredible sightning i found another cube!
+  shortComment: 
+  diaryEntry: 
   alreadyReadComment: ...
 --- !u!1001 &1155127717
 PrefabInstance:
@@ -4220,8 +4220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6425cc87f7a554b942fb763f8b259d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiaryInteractable
-  shortComment: 3rd cube
-  diaryEntry: Log number 3 i found a cube
+  shortComment: 
+  diaryEntry: 
   alreadyReadComment: ...
 --- !u!1 &1698728447
 GameObject:
