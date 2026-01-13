@@ -7,6 +7,9 @@ public class PlayerInteraction : MonoBehaviour
     public float interactDistance = 3f;
     public Transform cameraTransform;
     public TextMeshProUGUI interactText;
+    public Cutscene cutsceneManager;
+
+
 
     private Interactable currentInteractable;
 
@@ -18,14 +21,14 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
-        CheckForInteractable();
-
-        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            if (currentInteractable != null)
-            {
+       CheckForInteractable();
+        if (Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame) 
+        { 
+            if (currentInteractable != null) 
+            { 
+                cutsceneManager.PlayOF();          //since objects dont have any interaction related script attached, they can only play one custcene that the player performs IYKWIM
                 currentInteractable.Interact();
-            }
+            } 
         }
     }
 
