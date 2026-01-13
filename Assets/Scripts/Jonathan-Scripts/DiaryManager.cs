@@ -61,6 +61,10 @@ public class DiaryUIManager : MonoBehaviour
         onDiaryClosedCallback = onClosed;
         StartCoroutine(DiarySequence(shortText, diaryTextFull));
     }
+    public void ShowDialog(string text, float duration = 2f)
+    {
+        StartCoroutine(ShortCommentOnly(text, duration));
+    }
 
 
     public void ShowShortComment(string text)
@@ -92,14 +96,16 @@ public class DiaryUIManager : MonoBehaviour
         yield return StartCoroutine(TypeText(diaryText, diaryTextFull));
     }
 
-    IEnumerator ShortCommentOnly(string text)
+    IEnumerator ShortCommentOnly(string text, float duration = 2.5f)
+
     {
         shortCommentPanel.SetActive(true);
         shortCommentText.text = "";
         yield return StartCoroutine(TypeText(shortCommentText, text));
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(duration);
         shortCommentPanel.SetActive(false);
     }
+
 
     // =========================
     // CLOSE LOGIC
