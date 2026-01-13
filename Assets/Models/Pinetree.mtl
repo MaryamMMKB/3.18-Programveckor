@@ -1,0 +1,22 @@
+# Blender 4.5.3 LTS MTL File: 'None'
+# www.blender.org
+
+newmtl Material.003
+Ns 121.864441
+Ka 0.218182 0.218182 0.218182
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 3
+map_Kd C:/Users/ellio/Downloads/pine_tree-20260113T172448Z-1-001/pine_tree/bark_texture.png
+
+newmtl pine_branch
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+illum 2
+map_Kd C:/Users/ellio/Downloads/pine_tree-20260113T172448Z-1-001/pine_tree/pine_branch.png
+map_d C:/Users/ellio/Downloads/pine_tree-20260113T172448Z-1-001/pine_tree/pine_branch.png
