@@ -4,7 +4,7 @@ public class CutsceneEventReceiver : MonoBehaviour
 {
     public Cutscene cutsceneManager;
     public GameObject BorderJVV; //border gameobject to activate after OF cutscene
-
+  
     public void EndCutsceneEvent() 
     {
      if(cutsceneManager != null)
@@ -17,4 +17,5 @@ public class CutsceneEventReceiver : MonoBehaviour
     {
         BorderJVV.SetActive(true);
     }
-}
+   
+  }
