@@ -416,6 +416,7 @@ MonoBehaviour:
   interactDistance: 3
   cameraTransform: {fileID: 1803925357}
   interactText: {fileID: 1481002296}
+  cutsceneManager: {fileID: 0}
 --- !u!1 &395211519
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +465,99 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 680.15393, y: -0.00002, z: 712.15497}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &422851116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 422851119}
+  - component: {fileID: 422851118}
+  - component: {fileID: 422851117}
+  m_Layer: 6
+  m_Name: Terrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!154 &422851117
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422851116}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_TerrainData: {fileID: 15600000, guid: 5e10fb0dabc25704e8bb7e9f5cf0a7c2, type: 2}
+  m_EnableTreeColliders: 1
+--- !u!218 &422851118
+Terrain:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422851116}
+  m_Enabled: 1
+  serializedVersion: 6
+  m_TerrainData: {fileID: 15600000, guid: 5e10fb0dabc25704e8bb7e9f5cf0a7c2, type: 2}
+  m_TreeDistance: 5000
+  m_TreeBillboardDistance: 50
+  m_TreeCrossFadeLength: 5
+  m_TreeMaximumFullLODCount: 50
+  m_DetailObjectDistance: 80
+  m_DetailObjectDensity: 1
+  m_HeightmapPixelError: 5
+  m_SplatMapDistance: 1000
+  m_HeightmapMinimumLODSimplification: 0
+  m_HeightmapMaximumLOD: 0
+  m_ShadowCastingMode: 2
+  m_DrawHeightmap: 1
+  m_DrawInstanced: 0
+  m_DrawTreesAndFoliage: 1
+  m_StaticShadowCaster: 0
+  m_IgnoreQualitySettings: 0
+  m_ReflectionProbeUsage: 1
+  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
+  m_BakeLightProbesForTrees: 1
+  m_PreserveTreePrototypeLayers: 0
+  m_DeringLightProbesForTrees: 1
+  m_ReceiveGI: 1
+  m_ScaleInLightmap: 0.0256
+  m_LightmapParameters: {fileID: 15203, guid: 0000000000000000f000000000000000, type: 0}
+  m_GroupingID: 0
+  m_RenderingLayerMask: 1
+  m_AllowAutoConnect: 1
+  m_EnableHeightmapRayTracing: 1
+  m_EnableTreesAndDetailsRayTracing: 0
+  m_TreeMotionVectorModeOverride: 3
+--- !u!4 &422851119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422851116}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -361.05, y: -0.5, z: -449.93}
+  m_LocalScale: {x: 1.8509088, y: 1, z: 2.1018412}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1765,6 +1859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6425cc87f7a554b942fb763f8b259d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiaryInteractable
+  manager: {fileID: 0}
   shortComment: Finally
   diaryEntry: Last cube found
   alreadyReadComment: ...
@@ -2538,6 +2633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6425cc87f7a554b942fb763f8b259d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiaryInteractable
+  manager: {fileID: 0}
   shortComment: ANOTHER BOx
   diaryEntry: Incredible sightning i found another cube!
   alreadyReadComment: ...
@@ -3211,6 +3307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6425cc87f7a554b942fb763f8b259d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiaryInteractable
+  manager: {fileID: 0}
   shortComment: WOOOW
   diaryEntry: Another cube
   alreadyReadComment: ...
@@ -3571,7 +3668,7 @@ Transform:
   m_GameObject: {fileID: 1522090964}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 42.6, y: -1.35, z: 25.4}
+  m_LocalPosition: {x: 42.6, y: -2.3, z: 25.4}
   m_LocalScale: {x: 359.56284, y: 0.62801, z: 335.51077}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4220,6 +4317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6425cc87f7a554b942fb763f8b259d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiaryInteractable
+  manager: {fileID: 0}
   shortComment: 3rd cube
   diaryEntry: Log number 3 i found a cube
   alreadyReadComment: ...
@@ -4441,8 +4539,8 @@ Transform:
   m_GameObject: {fileID: 1711351462}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.6658, y: -0.90000004, z: -6.7537003}
-  m_LocalScale: {x: 27.497166, y: 0.62801, z: 99.84125}
+  m_LocalPosition: {x: -6.5702, y: -0.9, z: -41.0928}
+  m_LocalScale: {x: 49.970596, y: 0.62801, z: 168.51952}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 164136871}
@@ -5137,6 +5235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6425cc87f7a554b942fb763f8b259d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiaryInteractable
+  manager: {fileID: 0}
   shortComment: Hmm,
   diaryEntry: I found a cube
   alreadyReadComment: ...
@@ -5609,67 +5708,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 129a1182bb78f934c82858d0f5963eae, type: 3}
---- !u!1001 &2427074948751171019
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 479866961908979178, guid: 37eb4fa30a4962348b3b515bc27ecbdd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 20.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 479866961908979178, guid: 37eb4fa30a4962348b3b515bc27ecbdd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 479866961908979178, guid: 37eb4fa30a4962348b3b515bc27ecbdd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 479866961908979178, guid: 37eb4fa30a4962348b3b515bc27ecbdd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 479866961908979178, guid: 37eb4fa30a4962348b3b515bc27ecbdd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 479866961908979178, guid: 37eb4fa30a4962348b3b515bc27ecbdd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 479866961908979178, guid: 37eb4fa30a4962348b3b515bc27ecbdd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 479866961908979178, guid: 37eb4fa30a4962348b3b515bc27ecbdd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 479866961908979178, guid: 37eb4fa30a4962348b3b515bc27ecbdd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 479866961908979178, guid: 37eb4fa30a4962348b3b515bc27ecbdd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000648872373489488, guid: 37eb4fa30a4962348b3b515bc27ecbdd, type: 3}
-      propertyPath: m_Name
-      value: LowPoly - FirTree B
-      objectReference: {fileID: 0}
-    - target: {fileID: 1649435294087786117, guid: 37eb4fa30a4962348b3b515bc27ecbdd, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 14df21beea0892840a39804cbc370fdc, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 37eb4fa30a4962348b3b515bc27ecbdd, type: 3}
 --- !u!1001 &4751543508291645582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5817,5 +5855,5 @@ SceneRoots:
   - {fileID: 1155127717}
   - {fileID: 1523308486}
   - {fileID: 484038543498233399}
-  - {fileID: 2427074948751171019}
   - {fileID: 4751543508291645582}
+  - {fileID: 422851119}
