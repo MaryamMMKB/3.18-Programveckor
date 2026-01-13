@@ -678,7 +678,8 @@ PrefabInstance:
       propertyPath: walkSpeed
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8934042250292107447, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3650,7 +3651,7 @@ Transform:
   m_GameObject: {fileID: 1466968298}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.33, y: 0.31, z: 6.47}
+  m_LocalPosition: {x: 12.33, y: 2.17, z: 6.47}
   m_LocalScale: {x: 3.106172, y: 0.5982136, z: 2.8706527}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5573,8 +5574,8 @@ Transform:
   m_GameObject: {fileID: 1823743970}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.02, y: 0.85, z: -7.71}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.02, y: 1.7, z: -7.71}
+  m_LocalScale: {x: 1.8485, y: 1.8485, z: 1.8485}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
