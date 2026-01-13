@@ -1,49 +1,93 @@
 using UnityEngine;
-
+using UnityEngine.AI;
 
 public class EnemyPatrol : MonoBehaviour
 {
-    [Header("Patrol Points")]
-    public Transform[] waypoints;
+    [Header("Patrol")]
+    [SerializeField] private Transform[] patrolPoints;
+    [SerializeField] private float waitTimeAtPoint = 1.5f;
 
-    [Header("Movement Settings")]
-    public float speed = 2f;
-    public bool loop = true;
+    [Header("Visual")]
+    [SerializeField] private Transform visual; // child som flippar
 
-    private int currentIndex = 0;
+    private NavMeshAgent agent;
+    private int currentPointIndex;
+    private float waitTimer;
+    private bool agentReady;
 
-    void Update()
+    private void Awake()
     {
-        if (waypoints.Length == 0)
+        agent = GetComponent<NavMeshAgent>();
+
+        // KRITISKT fÃ¶r 2.5D
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+    }
+
+    private void Start()
+    {
+        PlaceAgentOnNavMesh();
+    }
+
+    private void Update()
+    {
+        Debug.Log("OnNavMesh: " + agent.isOnNavMesh);
+
+        if (!agentReady || patrolPoints.Length == 0)
             return;
 
-        Transform target = waypoints[currentIndex];
-
-        // Flytta enemy mot target
-        transform.position = Vector3.MoveTowards(
-            transform.position,
-            target.position,
-            speed * Time.deltaTime
-        );
-
-        // När fienden når punkten
-        if (Vector3.Distance(transform.position, target.position) < 0.1f)
+        // VÃ¤nta vid waypoint
+        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
-            currentIndex++;
+            waitTimer += Time.deltaTime;
 
-            if (currentIndex >= waypoints.Length)
+            if (waitTimer >= waitTimeAtPoint)
             {
-                if (loop)
-                    currentIndex = 0;
-                else
-                    currentIndex = waypoints.Length - 1;
+                GoToNextPoint();
+                waitTimer = 0f;
             }
         }
 
-        // Vänd sprite/rotation beroende på riktning
-        if (target.position.x > transform.position.x)
-            transform.localScale = new Vector3(1, 1, 1);
+        FlipVisual();
+    }
+
+    // ----------------------
+
+    private void PlaceAgentOnNavMesh()
+    {
+        if (agent.isOnNavMesh)
+        {
+            agentReady = true;
+            agent.SetDestination(patrolPoints[currentPointIndex].position);
+            return;
+        }
+
+        if (NavMesh.SamplePosition(transform.position, out NavMeshHit hit, 3f, NavMesh.AllAreas))
+        {
+            agent.Warp(hit.position);
+            agentReady = true;
+            agent.SetDestination(patrolPoints[currentPointIndex].position);
+        }
         else
-            transform.localScale = new Vector3(-1, 1, 1);
+        {
+            Debug.LogError("EnemyPatrol: No NavMesh found near enemy!");
+        }
+    }
+
+    private void GoToNextPoint()
+    {
+        currentPointIndex = (currentPointIndex + 1) % patrolPoints.Length;
+        agent.SetDestination(patrolPoints[currentPointIndex].position);
+    }
+
+    private void FlipVisual()
+    {
+        if (visual == null)
+            return;
+
+        if (agent.velocity.x > 0.1f)
+            visual.localScale = Vector3.one;
+        else if (agent.velocity.x < -0.1f)
+            visual.localScale = new Vector3(-1, 1, 1);
     }
 }
