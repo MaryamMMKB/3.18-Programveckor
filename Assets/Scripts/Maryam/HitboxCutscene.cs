@@ -9,6 +9,7 @@ public class HitboxCutscene : MonoBehaviour //script for making cutscenes play w
      BTC,
      AE,
      JVV,
+     I,
     
     }
     public CutsceneType cutsceneToPlay;
@@ -50,6 +51,10 @@ public class HitboxCutscene : MonoBehaviour //script for making cutscenes play w
 
             case CutsceneType.JVV:
                 cutsceneManager.PlayJVV();
+                break;
+
+            case CutsceneType.I:
+                cutsceneManager.PlayI();
                 break;
 
         }
