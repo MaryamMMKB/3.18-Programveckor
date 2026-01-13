@@ -1,77 +1,80 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class Press_Hold : MonoBehaviour
 {
-
     public Slider slider_Main;
-    public Text slider_Counter;
-    public Text slider_Status;
-    public Text slider_ColorStatus;
-    public Gradient slider_GradientColor;
-    public Gradient slider_PlainColor;
+    public TMP_Text slider_Counter;
+    public TMP_Text slider_Status;
     public Image slider_Fill;
 
-    public float slider_StartingValue;
-    public float slider_EndValue;
-    public float slider_MinValue;
+    [Header("Colors")]
+    public Color mainColor = new Color(0.141f, 0.239f, 0.306f); // 233D4E
+    public Color finishColor = new Color(0.588f, 0.710f, 0.800f); // 96B5CC
 
-    public bool slider_BGFill;
+    public float fillSpeed = 1.5f;
+    public float drainSpeed = 4f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private float currentValue;
+    private float maxValue;
+    private float dangerStartTime = 20f; // danger zone starts at 20s
+
     void Start()
     {
-        slider_EndValue = slider_StartingValue * 10f;
-        slider_MinValue = 0;
+        currentValue = 0f;
+        maxValue = 25f;
 
-        slider_Main.minValue = slider_MinValue;
-        slider_Main.maxValue = slider_EndValue;
+        slider_Main.minValue = 0f;
+        slider_Main.maxValue = maxValue;
+        slider_Main.value = currentValue;
 
-        slider_Counter.text = slider_MinValue.ToString();
-        slider_Fill.color = slider_GradientColor.Evaluate(slider_Main.normalizedValue);
+        slider_Counter.text = "0";
+
+        slider_Fill.color = mainColor;
     }
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.E))
+        // Fill or drain
+        if (Input.GetKey(KeyCode.Space))
         {
-            slider_StartingValue = Mathf.MoveTowards(
-                slider_StartingValue,
-                slider_EndValue,
-                1.5f * Time.deltaTime
-            );
-            slider_Status.text = "The Button E is in Hold State";
+            currentValue = Mathf.MoveTowards(currentValue, maxValue, fillSpeed * Time.deltaTime);
+            slider_Status.text = "SPACE is in Hold State";
         }
         else
         {
-            slider_StartingValue = Mathf.MoveTowards(
-                slider_StartingValue,
-                slider_MinValue,
-                4f * Time.deltaTime
-            );
-            slider_Status.text = "The Button is Released or No Action Performed";
+            currentValue = Mathf.MoveTowards(currentValue, 0f, drainSpeed * Time.deltaTime);
+            slider_Status.text = "The Button is Released";
         }
 
-        slider_Main.value = slider_StartingValue;
-        slider_Counter.text = Mathf.RoundToInt(slider_StartingValue).ToString();
+        slider_Main.value = currentValue;
+        slider_Counter.text = Mathf.RoundToInt(currentValue).ToString();
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            slider_BGFill = !slider_BGFill;
-        }
+        // ===== Danger zone effect for the last portion =====
+        float normalizedValue = currentValue / maxValue;
 
-        if (slider_BGFill)
+        if (currentValue <= dangerStartTime)
         {
-            slider_Fill.color = slider_GradientColor.Evaluate(slider_Main.normalizedValue);
-            slider_ColorStatus.text = "BG Fill is in Gradient";
+            // Regular fill, no danger zone
+            slider_Fill.color = mainColor;
         }
         else
         {
-            slider_Fill.color = slider_PlainColor.Evaluate(slider_Main.normalizedValue);
-            slider_ColorStatus.text = "BG is in Plain Color";
+            // Calculate danger portion (0 → 1 over last 5s)
+            float dangerT = (currentValue - dangerStartTime) / (maxValue - dangerStartTime);
+
+            // Base color stays mainColor
+            slider_Fill.color = mainColor;
+
+            // Overlay finishColor for the danger portion
+            // Trick: use a Material with fill, or simply lerp the color based on normalizedValue of danger
+            slider_Fill.color = Color.Lerp(mainColor, finishColor, dangerT);
         }
+    }
+
+    public float GetCurrentValue()
+    {
+        return currentValue;
     }
 }
