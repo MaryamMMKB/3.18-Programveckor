@@ -741,7 +741,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acb0b4fdc03fdb14399dfda369f96c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
-  interactDistance: 3
+  interactDistance: 7
   cameraTransform: {fileID: 406748047}
   interactText: {fileID: 1481002296}
   cutsceneManager: {fileID: 225497390}
