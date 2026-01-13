@@ -590,6 +590,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 925175690393648482, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1477758465034420673, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
       propertyPath: m_Name
       value: Player (1)
