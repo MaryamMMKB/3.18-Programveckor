@@ -7,6 +7,7 @@ public class Cutscene : MonoBehaviour
     public GameObject cutsceneCamera;
     public GameObject playerCamera;
     
+    
 
 
     void Awake()
@@ -108,6 +109,10 @@ public class Cutscene : MonoBehaviour
         if (cutsceneCamera != null)
         {
             cutsceneCamera.SetActive(true);  // enable camera first
+        }  
+        if (playerCamera != null)
+        {
+            playerCamera.SetActive(false);   // hide player camera
         }
         if (Cutscenes != null)
         {
@@ -115,10 +120,7 @@ public class Cutscene : MonoBehaviour
             Cutscenes.SetTrigger("I");
         }
 
-        if (playerCamera != null)
-        {
-            playerCamera.SetActive(false);   // hide player camera
-        }
+      
     }
 
     public void EndCutscene() //DONT FORGET TO ADD AS EVENT IN CLIP >:|

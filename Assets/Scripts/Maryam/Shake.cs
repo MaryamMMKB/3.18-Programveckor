@@ -18,7 +18,7 @@ public class ScreenShake : MonoBehaviour
         }
     }
 
-    IEnumerator Shaking()
+    public IEnumerator Shaking()
     {
         Vector3 startPosition = transform.position;
         float elapsedTime = 0f;

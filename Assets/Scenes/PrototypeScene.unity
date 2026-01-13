@@ -317,6 +317,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 384992965985496757, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
   m_PrefabInstance: {fileID: 715633499}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &136758109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7382137594826059100, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
+  m_PrefabInstance: {fileID: 715633499}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136758099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c60db41c46c8324fa33928b39240be2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ScreenShake
 --- !u!1 &182034533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1342,6 +1353,75 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 523465671}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &568030539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 568030540}
+  - component: {fileID: 568030542}
+  - component: {fileID: 568030541}
+  m_Layer: 0
+  m_Name: HITBOX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &568030540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568030539}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 943538411}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &568030541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568030539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e8f47d0ef3d3cb43b08db6e79506a1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitboxCutscene
+  cutsceneManager: {fileID: 1445066394}
+  cutsceneToPlay: 4
+  playOnce: 1
+--- !u!65 &568030542
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568030539}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.51, y: 1.71, z: 1.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &569695921
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,9 +2076,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 714131681}
     - target: {fileID: 6984732583084692235, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
+      propertyPath: screenShake
+      value: 
+      objectReference: {fileID: 136758109}
+    - target: {fileID: 6984732583084692235, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
       propertyPath: cutsceneManager
       value: 
       objectReference: {fileID: 1445066394}
+    - target: {fileID: 7382137594826059100, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
+      propertyPath: start
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7382137594826059100, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
       propertyPath: duration
       value: 1
@@ -2566,8 +2654,6 @@ GameObject:
   - component: {fileID: 943538408}
   - component: {fileID: 943538407}
   - component: {fileID: 943538406}
-  - component: {fileID: 943538413}
-  - component: {fileID: 943538412}
   m_Layer: 0
   m_Name: CarriagePlaceholder
   m_TagString: Untagged
@@ -2585,7 +2671,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 4
   m_Animation: {fileID: 7400000, guid: 0ea8a845832f0d14f8c8311795d3a597, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: 0ea8a845832f0d14f8c8311795d3a597, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -2705,45 +2792,10 @@ Transform:
   m_LocalPosition: {x: -5.16266, y: 3.3, z: 11.97227}
   m_LocalScale: {x: 7, y: 3.5634203, z: 7}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 568030540}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &943538412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943538405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e8f47d0ef3d3cb43b08db6e79506a1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HitboxCutscene
-  cutsceneManager: {fileID: 1445066394}
-  cutsceneToPlay: 4
-  playOnce: 1
---- !u!65 &943538413
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943538405}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.78, y: 2.0000002, z: 1.85}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &998173180
 GameObject:
   m_ObjectHideFlags: 0
