@@ -488,10 +488,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e9a156235843a46be2889b35c0a9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NarrativeTrigger
+  opensDiary: 0
+  diaryEntry: 
   dialogText: What is that
   dialogDuration: 2.5
   blockBacktracking: 0
   blockerPrefab: {fileID: 0}
+  hasTriggered: 0
 --- !u!65 &248143237
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1150,7 +1153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DiaryInteractable
   manager: {fileID: 0}
   shortComment: ANOTHER BOx
-  diaryEntry: Incredible sightning i found another cube!
+  diaryEntry: Incredible sightning I found another cube!
   alreadyReadComment: ...
 --- !u!65 &707701251
 BoxCollider:
@@ -2121,12 +2124,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e9a156235843a46be2889b35c0a9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NarrativeTrigger
+  opensDiary: 0
+  diaryEntry: 
   dialogText: 'I think hes here
 
 '
   dialogDuration: 2.5
   blockBacktracking: 0
   blockerPrefab: {fileID: 0}
+  hasTriggered: 0
 --- !u!65 &1659557626
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2374,10 +2380,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e9a156235843a46be2889b35c0a9af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NarrativeTrigger
+  opensDiary: 0
+  diaryEntry: 
   dialogText: ...
   dialogDuration: 2.5
   blockBacktracking: 0
   blockerPrefab: {fileID: 0}
+  hasTriggered: 0
 --- !u!65 &1828836792
 BoxCollider:
   m_ObjectHideFlags: 0
