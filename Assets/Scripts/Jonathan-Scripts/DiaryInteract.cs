@@ -4,10 +4,10 @@ public class DiaryInteractable : Interactable
 {
     [Header("First Interaction")]
     [TextArea(2, 4)]
-    public string shortComment;
+    public string shortComment;   // Optional comment before main diary text
 
     [TextArea(6, 12)]
-    public string diaryEntry;
+    public string diaryEntry;     // Full diary text
 
     [Header("After Reading")]
     [TextArea(2, 4)]
@@ -21,13 +21,12 @@ public class DiaryInteractable : Interactable
         {
             hasBeenRead = true;
 
-            DiaryUIManager.Instance.ShowDiary(
-                shortComment,
-                diaryEntry
-            );
+            // Write to diary (persistent pages)
+            DiaryUIManager.Instance.WriteDiary(diaryEntry, shortComment);
         }
         else
         {
+            // Show a short comment if already read
             DiaryUIManager.Instance.ShowShortComment(alreadyReadComment);
         }
     }
