@@ -5,17 +5,15 @@ public class ScreenShake : MonoBehaviour
 {
  
 
-    public bool start = false;
+   
     public AnimationCurve curve;
     public float duration = 1f;
 
-    void Update()
+   public void CalleableShake()
     {
-        if (start)
-        {
-            start = false;
-            StartCoroutine(Shaking());
-        }
+        
+     StartCoroutine(Shaking());
+        Debug.Log("Screen shake called");
     }
 
     public IEnumerator Shaking()
