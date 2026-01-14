@@ -21,16 +21,13 @@ public class DiaryInteractable : Interactable
         {
             hasBeenRead = true;
 
-            // Show diary as usual
             DiaryUIManager.Instance.ShowDiary(
                 shortComment,
                 diaryEntry
-            // No callback needed since we no longer hide the object
             );
         }
         else
         {
-            // Show a short comment instead
             DiaryUIManager.Instance.ShowShortComment(alreadyReadComment);
         }
     }

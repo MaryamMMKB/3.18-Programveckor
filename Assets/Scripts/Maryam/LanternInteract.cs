@@ -1,18 +1,34 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class LanternInteract : MonoBehaviour
 {
     public Cutscene cutsceneManager;
     public GameObject lanternObject;
+    public TextMeshProUGUI promptText;
+        
     private bool playerInside = false;
     private bool pickedUp = false;
 
+
+    void Start()
+    {
+        if(promptText != null)
+        {
+            promptText.gameObject.SetActive(false);
+
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !pickedUp)
         {
-        playerInside = true;
+            playerInside = true;
+            if (promptText != null)
+            {
+                promptText.gameObject.SetActive(true);
+            }
         }
     }
     private void OnTriggerExit(Collider other)
@@ -20,6 +36,8 @@ public class LanternInteract : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInside = false;
+            if (promptText != null)
+                promptText.gameObject.SetActive(false);
         }
     }
     void Update()
@@ -35,7 +53,13 @@ public class LanternInteract : MonoBehaviour
     {
         pickedUp = true;
 
-        if(lanternObject != null)
+        if (promptText != null)
+        {
+            promptText.gameObject.SetActive(false);
+        }
+
+
+        if (lanternObject != null)
         {
             cutsceneManager.TeleportAndFade();
             

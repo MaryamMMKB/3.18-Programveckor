@@ -1,18 +1,11 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-/// <summary>
-/// Moves an enemy from its start position to Point B, waits, then moves to Point C and despawns.
-/// </summary>
 public class EnemyPatrolAI : MonoBehaviour
 {
-    [Tooltip("Central settings object for this enemy.")]
     public EnemyAISettings settings;
-    [Tooltip("Intermediate position to reach before waiting.")]
     public Transform pointB;
-    [Tooltip("Final position. Enemy despawns after reaching this point.")]
     public Transform pointC;
-    [Tooltip("NavMeshAgent used for movement.")]
     public NavMeshAgent agent;
 
     private enum State
@@ -30,32 +23,27 @@ public class EnemyPatrolAI : MonoBehaviour
     private void Awake()
     {
         if (agent == null)
-        {
             agent = GetComponent<NavMeshAgent>();
-        }
     }
 
     private void Start()
     {
         ApplySettings();
 
-        if (settings != null && settings.startConditionMet)
+        // ?? TVINGA RESET VID SPELSTART
+        if (settings != null)
         {
-            StartPatrol();
+            settings.SetStartCondition(false);
         }
+
+        agent.isStopped = true;
     }
+
 
     private void Update()
     {
-        if (state == State.Done)
-        {
+        if (state == State.Done || settings == null || agent == null)
             return;
-        }
-
-        if (settings == null || agent == null)
-        {
-            return;
-        }
 
         switch (state)
         {
@@ -65,12 +53,14 @@ public class EnemyPatrolAI : MonoBehaviour
                     StartPatrol();
                 }
                 break;
+
             case State.MoveToB:
                 if (ReachedDestination())
                 {
                     BeginWait();
                 }
                 break;
+
             case State.WaitAtB:
                 waitTimer -= Time.deltaTime;
                 if (waitTimer <= 0f)
@@ -79,6 +69,7 @@ public class EnemyPatrolAI : MonoBehaviour
                     state = State.MoveToC;
                 }
                 break;
+
             case State.MoveToC:
                 if (ReachedDestination())
                 {
@@ -91,6 +82,7 @@ public class EnemyPatrolAI : MonoBehaviour
 
     private void StartPatrol()
     {
+        agent.isStopped = false;   // ?? släpp agenten
         MoveTo(pointB);
         state = State.MoveToB;
     }
@@ -104,9 +96,7 @@ public class EnemyPatrolAI : MonoBehaviour
     private void MoveTo(Transform target)
     {
         if (target == null)
-        {
             return;
-        }
 
         agent.SetDestination(target.position);
     }
@@ -114,9 +104,7 @@ public class EnemyPatrolAI : MonoBehaviour
     private void ApplySettings()
     {
         if (settings == null || agent == null)
-        {
             return;
-        }
 
         agent.speed = settings.agentSpeed;
         agent.acceleration = settings.agentAcceleration;
@@ -127,21 +115,14 @@ public class EnemyPatrolAI : MonoBehaviour
     private bool ReachedDestination()
     {
         if (agent.pathPending)
-        {
             return false;
-        }
 
         if (agent.remainingDistance > agent.stoppingDistance)
-        {
             return false;
-        }
 
-        return !agent.hasPath || agent.velocity.sqrMagnitude <= 0.01f;
+        return !agent.hasPath || agent.velocity.sqrMagnitude < 0.01f;
     }
 
-    /// <summary>
-    /// Call this from your breath-hold system when the player succeeds.
-    /// </summary>
     public void DespawnFromBreathHold()
     {
         state = State.Done;
