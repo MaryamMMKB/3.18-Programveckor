@@ -43,12 +43,13 @@ public class DiaryUIManager : MonoBehaviour
         if (!diaryOpen) return;
 
         if (Keyboard.current != null &&
-            (Keyboard.current.eKey.wasPressedThisFrame ||
-             Keyboard.current.escapeKey.wasPressedThisFrame))
+            (Keyboard.current.spaceKey.wasPressedThisFrame))
+             
         {
             CloseDiary();
         }
     }
+
 
     // =========================
     // PUBLIC API
@@ -65,6 +66,13 @@ public class DiaryUIManager : MonoBehaviour
     {
         StartCoroutine(ShortCommentOnly(text, duration));
     }
+    public void ShowDiaryDirect(string diaryTextFull, System.Action onClosed = null)
+    {
+        if (diaryOpen) return;
+
+        onDiaryClosedCallback = onClosed;
+        StartCoroutine(DiaryDirectSequence(diaryTextFull));
+    }
 
 
     public void ShowShortComment(string text)
@@ -75,6 +83,18 @@ public class DiaryUIManager : MonoBehaviour
     // =========================
     // SEQUENCES
     // =========================
+    IEnumerator DiaryDirectSequence(string diaryTextFull)
+    {
+        diaryPanel.SetActive(true);
+
+        diaryAnimator.ResetTrigger("Close");
+        diaryAnimator.SetTrigger("Open");
+
+        diaryText.text = "";
+        diaryOpen = true;
+
+        yield return StartCoroutine(TypeText(diaryText, diaryTextFull));
+    }
 
     IEnumerator DiarySequence(string shortText, string diaryTextFull)
     {

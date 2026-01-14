@@ -172,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3216128274911455419, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -41
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3216128274911455419, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
       propertyPath: m_LocalRotation.w
@@ -226,9 +226,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1477758465034420673, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
       insertIndex: -1
       addedObject: {fileID: 83068707}
-    - targetCorrespondingSourceObject: {fileID: 1477758465034420673, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 83068708}
   m_SourcePrefab: {fileID: 100100000, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
 --- !u!1 &83068705 stripped
 GameObject:
@@ -255,30 +252,7 @@ MonoBehaviour:
   interactDistance: 6
   cameraTransform: {fileID: 83068706}
   interactText: {fileID: 754025178}
-  cutsceneManager: {fileID: 473017258}
---- !u!114 &83068708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83068705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc0bae8e5823b6b47ae7bfad87414144, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerNarrativeTriggerDetector
---- !u!114 &83068710 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8267738859598656151, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
-  m_PrefabInstance: {fileID: 83068704}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 83068705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486e6a5b51784d04b976e4c96331c9a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
+  cutsceneManager: {fileID: 1365818600}
 --- !u!1 &91339188
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,11 +303,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6425cc87f7a554b942fb763f8b259d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiaryInteractable
-  manager: {fileID: 473017258}
-  shortComment: What..
-  diaryEntry: I am struck still by the sight before me. A great pool of blood stains
-    the forest floor, and in that dreadful instant I comprehend the true gravity
-    of my situation.
+  manager: {fileID: 1365818600}
+  shortComment: Finally
+  diaryEntry: Last cube found
   alreadyReadComment: ...
 --- !u!65 &96381120
 BoxCollider:
@@ -572,87 +544,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5321936eea7fa845a7bcd9e58c9a7ea, type: 3}
---- !u!1 &220403079
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 220403082}
-  - component: {fileID: 220403081}
-  - component: {fileID: 220403080}
-  m_Layer: 0
-  m_Name: Narrativetriggermanager (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &220403080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 220403079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32e9a156235843a46be2889b35c0a9af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NarrativeTrigger
-  opensDiary: 1
-  diaryEntry: "I have been much occupied this day with an uncommon degree of labour.
-    I paid a visit of some note to the Edmund household in Grasmere, whose present
-    circumstances, though respectable, are not without difficulty. The call was met
-    with gratitude, and I trust my presence afforded them some comfort, for our families
-    have long shared a close and amiable connection. From there, we travelled eastward
-    toward Ambleside, where I resolved to distribute charity among the poor. Given
-    the privileges of my rank, I believe such acts not only proper but necessary\u2014unlike
-    the cold obstinacy shown by many men who presume themselves fit to rule this
-    country."
-  dialogText: 
-  dialogDuration: 2.5
-  blockBacktracking: 0
-  blockerPrefab: {fileID: 0}
-  hasTriggered: 0
---- !u!65 &220403081
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 220403079}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 24.024712, y: 6.017563, z: 1}
-  m_Center: {x: 1.8092074, y: 2.5087814, z: 0}
---- !u!4 &220403082
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 220403079}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.99954116, z: -0, w: -0.030289195}
-  m_LocalPosition: {x: 7.6, y: 0.26399994, z: -18.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 1256.529, z: 0}
 --- !u!4 &230472295
 Transform:
   m_ObjectHideFlags: 0
@@ -867,14 +758,14 @@ RectTransform:
   m_GameObject: {fileID: 386029527}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.6970034, y: 3.9073226, z: 14.560361}
+  m_LocalScale: {x: 4.6970034, y: 14.560361, z: 14.560361}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1610882202}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -77, y: -362}
+  m_AnchoredPosition: {x: -416, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &386029529
@@ -906,8 +797,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -924,8 +815,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1066,13 +957,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6425cc87f7a554b942fb763f8b259d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiaryInteractable
-  manager: {fileID: 473017258}
-  shortComment: Is this not...
-  diaryEntry: "I have found Mr. Kalahan\u2019s watch and walking cane sunk into the
-    mud. My gown is now quite ruined, and if this is intended as amusement, I find
-    no pleasure in it whatsoever. I had resolved to return to the carriage and wait,
-    yet something within me urges me onward, as though he wishes me to follow him
-    still."
+  manager: {fileID: 1365818600}
+  shortComment: 3rd cube
+  diaryEntry: Log number 3 i found a cube
   alreadyReadComment: ...
 --- !u!65 &420535180
 BoxCollider:
@@ -1161,7 +1048,7 @@ Transform:
   m_GameObject: {fileID: 420535178}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 78.02, y: 0.75, z: 21.29}
+  m_LocalPosition: {x: 67.83, y: 0.75, z: 27.87}
   m_LocalScale: {x: 2.4280427, y: 1.4302, z: 1.895015}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1242,55 +1129,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5321936eea7fa845a7bcd9e58c9a7ea, type: 3}
---- !u!1 &473017257
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 473017259}
-  - component: {fileID: 473017258}
-  m_Layer: 0
-  m_Name: CutsceneManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &473017258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473017257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6d64124a8a0e544699fa7042dcab2dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Cutscene
-  Cutscenes: {fileID: 655225215}
-  PlayerMovement: {fileID: 83068710}
-  cutsceneCamera: {fileID: 655225212}
-  playerCamera: {fileID: 1668748533}
-  teleportTarget: {fileID: 0}
---- !u!4 &473017259
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 473017257}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.33971, y: 0, z: 9.02792}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &491275180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1847,16 +1685,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &655225212 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8168506649563535158, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
-  m_PrefabInstance: {fileID: 83068704}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &655225215 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 384992965985496757, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
-  m_PrefabInstance: {fileID: 83068704}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &671813312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2060,13 +1888,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6425cc87f7a554b942fb763f8b259d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiaryInteractable
-  manager: {fileID: 473017258}
-  shortComment: "What is this\u2026?"
-  diaryEntry: "His conduct is entirely unlike him, for he has ever been steady and
-    obedient in his duties. I must determine whether he has come to harm. Perhaps
-    the horse fled and he pursued it into the woods\u2014but such a notion cannot
-    account for the scraps of fabric and\u2026 skin\u2026 I have found upon the ground.
-    A wolf, perhaps. A rogue beast. I cannot say, yet I shall continue my inquiry."
+  manager: {fileID: 1365818600}
+  shortComment: ANOTHER BOx
+  diaryEntry: Incredible sightning i found another cube!
   alreadyReadComment: ...
 --- !u!65 &707701251
 BoxCollider:
@@ -2392,80 +2216,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &781646881
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 781646884}
-  - component: {fileID: 781646883}
-  - component: {fileID: 781646882}
-  m_Layer: 0
-  m_Name: Narrativetriggermanager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &781646882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 781646881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32e9a156235843a46be2889b35c0a9af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NarrativeTrigger
-  opensDiary: 0
-  diaryEntry: 
-  dialogText: Mr. Kalahan, this jest has gone on long enough. You may put an end
-    to it now.
-  dialogDuration: 2.5
-  blockBacktracking: 0
-  blockerPrefab: {fileID: 0}
-  hasTriggered: 0
---- !u!65 &781646883
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 781646881}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 24.024712, y: 6.017563, z: 1}
-  m_Center: {x: 1.8092074, y: 2.5087814, z: 0}
---- !u!4 &781646884
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 781646881}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.6688108, z: -0, w: -0.74343276}
-  m_LocalPosition: {x: 41.33, y: 0.264, z: 11.89}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 1163.951, z: 0}
 --- !u!1 &781724416
 GameObject:
   m_ObjectHideFlags: 0
@@ -3385,10 +3135,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1777106994}
   - {fileID: 754025180}
   - {fileID: 1610882202}
   - {fileID: 927329453}
+  - {fileID: 1777106994}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3629,6 +3379,77 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1250219560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1250219563}
+  - component: {fileID: 1250219562}
+  - component: {fileID: 1250219561}
+  m_Layer: 0
+  m_Name: Narrativetriggermanager (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1250219561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250219560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32e9a156235843a46be2889b35c0a9af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NarrativeTrigger
+  dialogText: ...
+  dialogDuration: 2.5
+  blockBacktracking: 0
+  blockerPrefab: {fileID: 0}
+  hasTriggered: 0
+--- !u!65 &1250219562
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250219560}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 24.024712, y: 6.017563, z: 1}
+  m_Center: {x: 1.8092074, y: 2.5087814, z: 0}
+--- !u!4 &1250219563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250219560}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.0460428, z: -0, w: -0.99893945}
+  m_LocalPosition: {x: 79.9, y: 0.264, z: -45.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 1805.278, z: 0}
 --- !u!1 &1306367192
 GameObject:
   m_ObjectHideFlags: 0
@@ -3853,6 +3674,55 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5321936eea7fa845a7bcd9e58c9a7ea, type: 3}
+--- !u!1 &1365818599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1365818601}
+  - component: {fileID: 1365818600}
+  m_Layer: 0
+  m_Name: CutsceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1365818600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365818599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6d64124a8a0e544699fa7042dcab2dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Cutscene
+  Cutscenes: {fileID: 0}
+  PlayerMovement: {fileID: 0}
+  cutsceneCamera: {fileID: 0}
+  playerCamera: {fileID: 0}
+  teleportTarget: {fileID: 0}
+--- !u!4 &1365818601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365818599}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.33971, y: 0, z: 9.02792}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &1385977090 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 3893348411838804040, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
@@ -4148,11 +4018,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6425cc87f7a554b942fb763f8b259d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiaryInteractable
-  manager: {fileID: 473017258}
-  shortComment: "What is this interruption?\r"
-  diaryEntry: It appears I have been forced to halt upon the way to dinner in the
-    nearby town. Mr. Kalahan, my coachman, has inexplicably deserted the carriage.
-    Whether this is meant as some ill-considered ruse, I cannot yet tell.
+  manager: {fileID: 1365818600}
+  shortComment: Hmm,
+  diaryEntry: I found a cube
   alreadyReadComment: ...
 --- !u!65 &1444056125
 BoxCollider:
@@ -4241,7 +4109,7 @@ Transform:
   m_GameObject: {fileID: 1444056123}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.02, y: 0.85, z: -7.71}
+  m_LocalPosition: {x: 4.43, y: 0.85, z: -11.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4860,7 +4728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1610882202
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4870,7 +4738,7 @@ RectTransform:
   m_GameObject: {fileID: 1610882201}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9897892, y: 1.050288, z: 1}
+  m_LocalScale: {x: 0.9276453, y: 0.22555164, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 386029528}
@@ -4878,7 +4746,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 46}
+  m_AnchoredPosition: {x: 0, y: -272}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1610882203
@@ -4894,15 +4762,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.72955966, g: 0.66826254, b: 0.5620821, a: 1}
+  m_Color: {r: 0.72955966, g: 0.66826254, b: 0.5620821, a: 0.59607846}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d84278efec31bcf45921de47e1a6b855, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4992,11 +4860,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 274958796}
   m_Mesh: {fileID: 4579454407841743219, guid: d18c03d871f645340897ed4ec23ee362, type: 3}
---- !u!1 &1668748533 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3709293837174375781, guid: 196d3438924b6ed489d3dd7b86e62919, type: 3}
-  m_PrefabInstance: {fileID: 83068704}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1734560327
 GameObject:
   m_ObjectHideFlags: 0
@@ -5207,6 +5070,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441413628}
   m_Mesh: {fileID: 4579454407841743219, guid: d18c03d871f645340897ed4ec23ee362, type: 3}
+--- !u!1 &1770233129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1770233132}
+  - component: {fileID: 1770233131}
+  - component: {fileID: 1770233130}
+  m_Layer: 0
+  m_Name: Narrativetriggermanager (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1770233130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770233129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32e9a156235843a46be2889b35c0a9af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NarrativeTrigger
+  dialogText: 
+  dialogDuration: 4
+  blockBacktracking: 0
+  blockerPrefab: {fileID: 0}
+  hasTriggered: 0
+--- !u!65 &1770233131
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770233129}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 24.024712, y: 6.017563, z: 1}
+  m_Center: {x: 1.8092074, y: 2.5087814, z: 0}
+--- !u!4 &1770233132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770233129}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.0460428, z: -0, w: -0.99893945}
+  m_LocalPosition: {x: 5.1, y: 0.264, z: -26.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 1805.278, z: 0}
 --- !u!1 &1771795807
 GameObject:
   m_ObjectHideFlags: 0
@@ -5239,11 +5173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f6425cc87f7a554b942fb763f8b259d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DiaryInteractable
-  manager: {fileID: 473017258}
-  shortComment: What is this upon the ground?
-  diaryEntry: "\r A most peculiar trail lies before me upon the road, the nature
-    of which I do not understand, though I am certain my coachman has some part in
-    it."
+  manager: {fileID: 1365818600}
+  shortComment: WOOOW
+  diaryEntry: Another cube
   alreadyReadComment: ...
 --- !u!65 &1771795809
 BoxCollider:
@@ -5676,79 +5608,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5321936eea7fa845a7bcd9e58c9a7ea, type: 3}
---- !u!1 &1809121829
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1809121832}
-  - component: {fileID: 1809121831}
-  - component: {fileID: 1809121830}
-  m_Layer: 0
-  m_Name: Narrativetriggermanager (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1809121830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1809121829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32e9a156235843a46be2889b35c0a9af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NarrativeTrigger
-  opensDiary: 0
-  diaryEntry: 
-  dialogText: ... What
-  dialogDuration: 2.5
-  blockBacktracking: 0
-  blockerPrefab: {fileID: 0}
-  hasTriggered: 0
---- !u!65 &1809121831
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1809121829}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 24.024712, y: 6.017563, z: 1}
-  m_Center: {x: 1.8092074, y: 2.5087814, z: 0}
---- !u!4 &1809121832
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1809121829}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.0460428, z: -0, w: -0.99893945}
-  m_LocalPosition: {x: 73.3, y: 0.264, z: -52.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 1805.278, z: 0}
 --- !u!1001 &1825232021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5897,6 +5756,77 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547077588}
   m_Mesh: {fileID: 4579454407841743219, guid: d18c03d871f645340897ed4ec23ee362, type: 3}
+--- !u!1 &1890882759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1890882762}
+  - component: {fileID: 1890882761}
+  - component: {fileID: 1890882760}
+  m_Layer: 0
+  m_Name: Narrativetriggermanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1890882760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890882759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32e9a156235843a46be2889b35c0a9af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NarrativeTrigger
+  dialogText: What is that
+  dialogDuration: 2.5
+  blockBacktracking: 0
+  blockerPrefab: {fileID: 0}
+  hasTriggered: 0
+--- !u!65 &1890882761
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890882759}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 24.024712, y: 6.017563, z: 1}
+  m_Center: {x: 1.8092074, y: 2.5087814, z: 0}
+--- !u!4 &1890882762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890882759}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.6688108, z: -0, w: -0.74343276}
+  m_LocalPosition: {x: 41.33, y: 0.264, z: 11.89}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 1163.951, z: 0}
 --- !u!4 &1898613244
 Transform:
   m_ObjectHideFlags: 0
@@ -6323,6 +6253,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f5321936eea7fa845a7bcd9e58c9a7ea, type: 3}
+--- !u!1 &2073655839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2073655842}
+  - component: {fileID: 2073655841}
+  - component: {fileID: 2073655840}
+  m_Layer: 0
+  m_Name: Narrativetriggermanager (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2073655840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073655839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32e9a156235843a46be2889b35c0a9af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NarrativeTrigger
+  dialogText: 'I think hes here
+
+'
+  dialogDuration: 2.5
+  blockBacktracking: 0
+  blockerPrefab: {fileID: 0}
+  hasTriggered: 0
+--- !u!65 &2073655841
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073655839}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 24.024712, y: 6.017563, z: 1}
+  m_Center: {x: 1.8092074, y: 2.5087814, z: 0}
+--- !u!4 &2073655842
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073655839}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.7819517, z: -0, w: -0.62333894}
+  m_LocalPosition: {x: 61.850937, y: 0.26399994, z: 18.817173}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 1697.121, z: 0}
 --- !u!4 &2086449704
 Transform:
   m_ObjectHideFlags: 0
@@ -6396,79 +6399,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246306366}
   m_Mesh: {fileID: 4579454407841743219, guid: d18c03d871f645340897ed4ec23ee362, type: 3}
---- !u!1 &2127540054
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2127540057}
-  - component: {fileID: 2127540056}
-  - component: {fileID: 2127540055}
-  m_Layer: 0
-  m_Name: Narrativetriggermanager (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2127540055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127540054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32e9a156235843a46be2889b35c0a9af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NarrativeTrigger
-  opensDiary: 0
-  diaryEntry: 
-  dialogText: Stop this nonsense!
-  dialogDuration: 2.5
-  blockBacktracking: 0
-  blockerPrefab: {fileID: 0}
-  hasTriggered: 0
---- !u!65 &2127540056
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127540054}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 24.024712, y: 6.017563, z: 1}
-  m_Center: {x: 1.8092074, y: 2.5087814, z: 0}
---- !u!4 &2127540057
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2127540054}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.3796432, z: -0, w: -0.925133}
-  m_LocalPosition: {x: 87.7, y: 0.264, z: 10.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 1755.377, z: 0}
 --- !u!1 &2142308374
 GameObject:
   m_ObjectHideFlags: 0
@@ -6730,8 +6660,8 @@ SceneRoots:
   - {fileID: 420535183}
   - {fileID: 1771795812}
   - {fileID: 707701254}
-  - {fileID: 1157712267}
   - {fileID: 96381123}
+  - {fileID: 1157712267}
   - {fileID: 1599308969}
   - {fileID: 781724419}
   - {fileID: 1062200847}
@@ -6739,8 +6669,8 @@ SceneRoots:
   - {fileID: 83068704}
   - {fileID: 1960084574}
   - {fileID: 756678874}
-  - {fileID: 1809121832}
-  - {fileID: 2127540057}
-  - {fileID: 473017259}
-  - {fileID: 781646884}
-  - {fileID: 220403082}
+  - {fileID: 1250219563}
+  - {fileID: 1770233132}
+  - {fileID: 2073655842}
+  - {fileID: 1365818601}
+  - {fileID: 1890882762}
