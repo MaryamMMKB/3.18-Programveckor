@@ -6,8 +6,8 @@ public class Cutscene : MonoBehaviour
     public PlayerMovement PlayerMovement;
     public GameObject cutsceneCamera;
     public GameObject playerCamera;
-    
-    
+
+    public Transform teleportTarget;
 
 
     void Awake()
@@ -121,6 +121,37 @@ public class Cutscene : MonoBehaviour
         }
 
       
+    }
+    public void AfterI() 
+    {
+        EndCutscene();
+        PlayerMovement.enabled = false;
+    
+    }
+    public void TeleportAndFade() 
+    {
+     Cutscenes.SetTrigger("FadeOut");
+        Debug.Log("Fading Out");
+        
+        
+        TeleportPlayer();
+        playerCamera.SetActive(false);
+        cutsceneCamera.SetActive(true);
+        PlayerMovement.enabled = false;
+         Cutscenes.SetTrigger("FadeOut");
+    }
+    public void TeleportPlayer() 
+    {
+       
+        Debug.Log("Teleporting Player");
+        PlayerMovement.transform.position = teleportTarget.position;//add as event on fade
+          
+        
+    }
+    public void EndFade() 
+    {
+        PlayerMovement.enabled = true;
+     
     }
 
     public void EndCutscene() //DONT FORGET TO ADD AS EVENT IN CLIP >:|
