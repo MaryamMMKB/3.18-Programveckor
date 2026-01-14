@@ -6,6 +6,7 @@ public class Cutscene : MonoBehaviour
     public PlayerMovement PlayerMovement;
     public GameObject cutsceneCamera;
     public GameObject playerCamera;
+    public ScreenShake screenshake; //references screenshake script
 
     public Transform teleportTarget;
 
@@ -152,6 +153,11 @@ public class Cutscene : MonoBehaviour
     {
         PlayerMovement.enabled = true;
      
+    }
+    public void ShakeCall() 
+    {
+        screenshake.CalleableShake();
+
     }
 
     public void EndCutscene() //DONT FORGET TO ADD AS EVENT IN CLIP >:|

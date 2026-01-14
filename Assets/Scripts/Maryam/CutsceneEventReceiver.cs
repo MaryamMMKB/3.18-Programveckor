@@ -38,5 +38,10 @@ public class CutsceneEventReceiver : MonoBehaviour
         cutsceneManager.TeleportAndFade();
 
     }
+    public void ShakeCall() 
+    {
+     
+    cutsceneManager.ShakeCall();
+    }
 
 }
