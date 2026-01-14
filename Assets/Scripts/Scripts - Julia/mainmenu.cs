@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class mainmenu : MonoBehaviour
 {
-    [SerializeField] public string PrototypeScene = "PrototypeScene";
+    [SerializeField] public string PrototypeScene = "Prototype2";
 
     public void OnClick()
     {
@@ -21,7 +21,7 @@ public class mainmenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("PrototypeScene");
+        SceneManager.LoadScene("Prototype2");
     }
 
     public void ExitGame()
