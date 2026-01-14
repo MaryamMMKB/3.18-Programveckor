@@ -638,7 +638,7 @@ GameObject:
   - component: {fileID: 43465981}
   m_Layer: 0
   m_Name: Temp Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2625,7 +2625,8 @@ Transform:
   m_LocalPosition: {x: 130, y: 8, z: -29}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1670755393}
   m_Father: {fileID: 1119994495}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &864149986
@@ -3114,7 +3115,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2125162919}
-  - {fileID: 1670755393}
   - {fileID: 654791722}
   - {fileID: 787668323}
   m_Father: {fileID: 0}
@@ -5110,8 +5110,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 35, y: 7.5, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 35, y: 131.90717, z: 8.9935875}
+  m_Center: {x: -0.000000017709148, y: 16.480947, z: 40.610474}
 --- !u!4 &1670755393
 Transform:
   m_ObjectHideFlags: 0
@@ -5121,11 +5121,11 @@ Transform:
   m_GameObject: {fileID: 1670755390}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9224391, z: -0, w: 0.38614267}
-  m_LocalPosition: {x: 101.34, y: 3.68, z: -3.21}
-  m_LocalScale: {x: -1.4659346, y: -0.110064164, z: -0.13689063}
+  m_LocalPosition: {x: -31.07, y: -1.065, z: 28.99}
+  m_LocalScale: {x: -1.4659346, y: -0.055032082, z: -0.13689063}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1119994495}
+  m_Father: {fileID: 787668323}
   m_LocalEulerAnglesHint: {x: 0, y: 134.571, z: 0}
 --- !u!1 &1809263786
 GameObject:
@@ -6156,7 +6156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39384b1df518dac4cb9aed437c618a47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAISettings
-  startOnAwake: 1
+  startOnAwake: 0
   startConditionMet: 1
   waitAtBSeconds: 5
   agentSpeed: 4.5
