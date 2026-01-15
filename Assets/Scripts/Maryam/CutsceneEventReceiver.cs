@@ -1,10 +1,16 @@
 using UnityEngine;
+using UnityEngine.UI;
+
+    
+
 
 public class CutsceneEventReceiver : MonoBehaviour
 {
     public Cutscene cutsceneManager;
     public GameObject BorderJVV; //border gameobject to activate after OF cutscene
+    public GameObject BorderI;
     public PlayerMovement PlayerMovement;
+   
  
   
 
@@ -19,6 +25,7 @@ public class CutsceneEventReceiver : MonoBehaviour
     public void AfterI() 
     {
     cutsceneManager.AfterI();
+        BorderI.SetActive(true);
     }
     public void Teleport() 
     {
@@ -27,7 +34,10 @@ public class CutsceneEventReceiver : MonoBehaviour
     }
     public void FadeEnded() 
     {
+    
+    
      cutsceneManager.EndFade();
+    
     }
     public void ActivateBorderJVV() //add as event in JVV
     {

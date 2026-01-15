@@ -1,34 +1,29 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.UI;
 
 public class LanternInteract : MonoBehaviour
 {
     public Cutscene cutsceneManager;
     public GameObject lanternObject;
-    public TextMeshProUGUI promptText;
+    public GameObject Image;
+    public GameObject PointLight;
+    
         
     private bool playerInside = false;
     private bool pickedUp = false;
 
 
-    void Start()
-    {
-        if(promptText != null)
-        {
-            promptText.gameObject.SetActive(false);
-
-        }
-    }
+   
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !pickedUp)
         {
             playerInside = true;
-            if (promptText != null)
-            {
-                promptText.gameObject.SetActive(true);
-            }
+            Image.gameObject.SetActive(false);
+            PointLight.gameObject.SetActive(false);
+
         }
     }
     private void OnTriggerExit(Collider other)
@@ -36,8 +31,9 @@ public class LanternInteract : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInside = false;
-            if (promptText != null)
-                promptText.gameObject.SetActive(false);
+            Image.gameObject.SetActive(true);
+            PointLight.gameObject.SetActive(true);
+
         }
     }
     void Update()
@@ -52,12 +48,8 @@ public class LanternInteract : MonoBehaviour
     public void PickUpLantern()
     {
         pickedUp = true;
-
-        if (promptText != null)
-        {
-            promptText.gameObject.SetActive(false);
-        }
-
+        Image.gameObject.SetActive(true);
+        PointLight.gameObject.SetActive(true);
 
         if (lanternObject != null)
         {
@@ -65,7 +57,8 @@ public class LanternInteract : MonoBehaviour
             
             Debug.Log("Lantern picked up!");
         }
-       
+        lanternObject.SetActive(false);
+
     }
 
 }
