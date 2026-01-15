@@ -11,7 +11,7 @@ public class NarrativeTrigger : MonoBehaviour
     [Header("Dialog Trigger")]
     [TextArea(2, 4)]
     public string dialogText;
-    public float dialogDuration = 2.5f;
+    public float dialogDuration = 2.5f; // Not used anymore, kept for reference
 
     [Header("Progression")]
     public bool blockBacktracking = false;
