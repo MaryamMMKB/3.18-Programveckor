@@ -9,24 +9,27 @@ public class PlayerNarrativeTriggerDetector : MonoBehaviour
 
         trigger.hasTriggered = true;
 
-        // If this trigger is a diary trigger, write to persistent diary pages
         if (trigger.opensDiary)
         {
-            DiaryUIManager.Instance.WriteDiary(trigger.diaryEntry);
+            DiaryUIManager.Instance.ShowDiaryDirect(trigger.diaryEntry);
         }
         else
         {
-            // Otherwise show a temporary dialog comment
-            DiaryUIManager.Instance.ShowShortComment(trigger.dialogText);
+            DiaryUIManager.Instance.ShowDialog(
+                trigger.dialogText,
+                trigger.dialogDuration
+            );
         }
 
-        // Handle optional backtracking blocker
         if (trigger.blockBacktracking && trigger.blockerPrefab != null)
         {
-            Instantiate(trigger.blockerPrefab, trigger.transform.position, Quaternion.identity);
+            Instantiate(
+                trigger.blockerPrefab,
+                trigger.transform.position,
+                Quaternion.identity
+            );
         }
 
-        // Remove the trigger object
         Destroy(trigger.gameObject);
     }
 }
