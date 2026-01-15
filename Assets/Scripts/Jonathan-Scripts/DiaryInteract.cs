@@ -17,8 +17,12 @@ public class DiaryInteractable : Interactable
     [Header("Sequence")]
     public InteractableSequenceManager sequenceManager;
 
-    [Tooltip("Delay before this object disappears and next one shows (cutscene time)")]
+    [Tooltip("Delay before advancing sequence (cutscene length)")]
     public float advanceDelay = 2f;
+
+    [Header("Blocking")]
+    [Tooltip("Collider that blocks the path and should be disabled after interaction")]
+    public Collider blockingCollider;
 
     private bool hasBeenRead = false;
 
@@ -28,10 +32,14 @@ public class DiaryInteractable : Interactable
         {
             hasBeenRead = true;
 
-            // Write diary
+            // Diary logic
             DiaryUIManager.Instance.WriteDiary(diaryEntry, shortComment);
 
-            // Advance after delay
+            // Disable blocking collider immediately (or after delay if you prefer)
+            if (blockingCollider != null)
+                blockingCollider.enabled = false;
+
+            // Advance sequence after delay
             if (sequenceManager != null)
                 StartCoroutine(AdvanceAfterDelay());
         }
