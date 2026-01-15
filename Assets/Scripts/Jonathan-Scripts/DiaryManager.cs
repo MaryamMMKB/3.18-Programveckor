@@ -87,12 +87,28 @@ public class DiaryUIManager : MonoBehaviour
 
     public void ShowShortComment(string text)
     {
-        StartCoroutine(ShortCommentOnly(text, shortCommentDuration));
+        StartCoroutine(ShortCommentTyped(text, shortCommentDuration));
     }
+
 
     // =========================
     // SHORT COMMENT
     // =========================
+    IEnumerator ShortCommentTyped(string text, float duration)
+    {
+        shortCommentPanel.SetActive(true);
+        shortCommentText.text = "";
+
+        // Typewriter effect
+        foreach (char c in text)
+        {
+            shortCommentText.text += c;
+            yield return new WaitForSeconds(diaryTypeSpeed);
+        }
+
+        yield return new WaitForSeconds(duration);
+        shortCommentPanel.SetActive(false);
+    }
 
     private IEnumerator ShowShortCommentThenWrite(string shortComment, string diaryText)
     {
