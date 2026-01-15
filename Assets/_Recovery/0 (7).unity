@@ -573,8 +573,7 @@ MonoBehaviour:
     of which I do not understand, though I am certain my coachman has some part in
     it."
   alreadyReadComment: I've already looked at this.
-  sequenceManager: {fileID: 1297620502}
-  advanceDelay: 4
+  sequenceManager: {fileID: 776349327}
 --- !u!65 &228934047
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1076,8 +1075,7 @@ MonoBehaviour:
     the forest floor, and in that dreadful instant I comprehend the true gravity
     of my situation.
   alreadyReadComment: I've already looked at this.
-  sequenceManager: {fileID: 1297620502}
-  advanceDelay: 2
+  sequenceManager: {fileID: 776349327}
 --- !u!65 &406314211
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2159,6 +2157,56 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1029678334}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &776349326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 776349328}
+  - component: {fileID: 776349327}
+  m_Layer: 0
+  m_Name: InteractableSequenceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &776349327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776349326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfe440df338444542925a0b155744fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableSequenceManager
+  interactableObjects:
+  - {fileID: 1449436906}
+  - {fileID: 406314209}
+  - {fileID: 1235288873}
+  - {fileID: 1144785695}
+  - {fileID: 228934045}
+--- !u!4 &776349328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776349326}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 68.02559, y: 7.78353, z: -5.03851}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &800715979
@@ -3761,8 +3809,7 @@ MonoBehaviour:
     yet something within me urges me onward, as though he wishes me to follow him
     still."
   alreadyReadComment: I've already looked at this.
-  sequenceManager: {fileID: 1297620502}
-  advanceDelay: 2
+  sequenceManager: {fileID: 776349327}
 --- !u!65 &1144785697
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4648,8 +4695,7 @@ MonoBehaviour:
     account for the scraps of fabric and\u2026 skin\u2026 I have found upon the ground.
     A wolf, perhaps. A rogue beast. I cannot say, yet I shall continue my inquiry."
   alreadyReadComment: I've already looked at this.
-  sequenceManager: {fileID: 1297620502}
-  advanceDelay: 2
+  sequenceManager: {fileID: 776349327}
 --- !u!65 &1235288875
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5377,56 +5423,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &1297620501
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1297620503}
-  - component: {fileID: 1297620502}
-  m_Layer: 0
-  m_Name: InteractableSequenceManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1297620502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1297620501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfe440df338444542925a0b155744fd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InteractableSequenceManager
-  interactableObjects:
-  - {fileID: 1449436906}
-  - {fileID: 228934045}
-  - {fileID: 1144785695}
-  - {fileID: 1235288873}
-  - {fileID: 406314209}
---- !u!4 &1297620503
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1297620501}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.28794, y: 0.0048, z: -1.29389}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1304681635
 GameObject:
   m_ObjectHideFlags: 0
@@ -6143,8 +6139,7 @@ MonoBehaviour:
     nearby town. Mr. Kalahan, my coachman, has inexplicably deserted the carriage.
     Whether this is meant as some ill-considered ruse, I cannot yet tell.
   alreadyReadComment: I've already looked at this.
-  sequenceManager: {fileID: 1297620502}
-  advanceDelay: 2
+  sequenceManager: {fileID: 776349327}
 --- !u!65 &1449436908
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8512,4 +8507,4 @@ SceneRoots:
   - {fileID: 228934051}
   - {fileID: 1335923048}
   - {fileID: 2014295661}
-  - {fileID: 1297620503}
+  - {fileID: 776349328}

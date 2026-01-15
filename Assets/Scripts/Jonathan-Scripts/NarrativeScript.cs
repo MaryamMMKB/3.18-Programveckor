@@ -2,21 +2,26 @@ using UnityEngine;
 
 public class NarrativeTrigger : MonoBehaviour
 {
-    [Header("Diary Trigger")]
+    [Header("Trigger State")]
+    [HideInInspector]
+    public bool hasTriggered = false;
+
+    [Header("Diary")]
     public bool opensDiary = false;
 
     [TextArea(6, 12)]
     public string diaryEntry;
 
-    [Header("Dialog Trigger")]
+    [Header("Dialog")]
     [TextArea(2, 4)]
     public string dialogText;
-    public float dialogDuration = 2.5f; // Not used anymore, kept for reference
 
-    [Header("Progression")]
+    [Header("Backtracking Blocker")]
     public bool blockBacktracking = false;
     public GameObject blockerPrefab;
 
-    [HideInInspector]
-    public bool hasTriggered = false;
+    [Header("Spawn Extra Collider")]
+    public bool spawnExtraCollider = false;
+    public GameObject extraColliderPrefab;
+    public Transform extraColliderSpawnPoint;
 }
