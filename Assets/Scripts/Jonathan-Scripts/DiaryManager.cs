@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.InputSystem;
-using System.Collections.Generic;
 
 public class DiaryUIManager : MonoBehaviour
 {
@@ -19,7 +18,7 @@ public class DiaryUIManager : MonoBehaviour
     [Header("Diary Pages")]
     public TextMeshProUGUI leftPageText;
     public TextMeshProUGUI rightPageText;
-    public int charactersPerPage = 350; // per page
+    public int charactersPerPage = 350;
 
     [Header("Timing")]
     public float shortCommentDuration = 2.5f;
@@ -30,11 +29,11 @@ public class DiaryUIManager : MonoBehaviour
 
     private bool diaryOpen;
     private bool isTyping;
-    private Coroutine typingRoutine;
 
-    // Persistent history
-    private string leftHistory = "";
-    private string rightHistory = "";
+    // Writing state
+    private string activeText;
+    private int activeIndex;
+    private Coroutine writingRoutine;
 
     void Awake()
     {
@@ -53,36 +52,41 @@ public class DiaryUIManager : MonoBehaviour
     {
         if (!diaryOpen) return;
 
-        if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
+        var keyboard = Keyboard.current;
+        if (keyboard == null) return;
+
+        // Finish typing instantly
+        if (keyboard.spaceKey.wasPressedThisFrame && isTyping)
         {
-            // Only close diary if NOT typing
-            if (!isTyping)
-            {
-                CloseDiary();
-            }
-            // If typing, ignore space (no skipping)
+            FinishTypingInstant();
+            return;
+        }
+
+        // Flip page with D
+        if (keyboard.dKey.wasPressedThisFrame && !isTyping)
+        {
+            StartCoroutine(FlipAndContinue());
+        }
+
+        // Close diary if no text left
+        if (keyboard.spaceKey.wasPressedThisFrame &&
+            !isTyping &&
+            activeIndex >= activeText.Length)
+        {
+            CloseDiary();
         }
     }
-
 
     // =========================
     // PUBLIC API
     // =========================
 
-    /// <summary>
-    /// Write a new diary entry with optional short comment.
-    /// Maintains previous history.
-    /// </summary>
     public void WriteDiary(string text, string shortComment = "")
     {
         if (!string.IsNullOrEmpty(shortComment))
-        {
             StartCoroutine(ShowShortCommentThenWrite(shortComment, text));
-        }
         else
-        {
-            StartCoroutine(WriteDiaryRoutine(text));
-        }
+            StartWriting(text);
     }
 
     public void ShowShortComment(string text)
@@ -90,16 +94,15 @@ public class DiaryUIManager : MonoBehaviour
         StartCoroutine(ShortCommentTyped(text, shortCommentDuration));
     }
 
-
     // =========================
     // SHORT COMMENT
     // =========================
+
     IEnumerator ShortCommentTyped(string text, float duration)
     {
         shortCommentPanel.SetActive(true);
         shortCommentText.text = "";
 
-        // Typewriter effect
         foreach (char c in text)
         {
             shortCommentText.text += c;
@@ -113,7 +116,7 @@ public class DiaryUIManager : MonoBehaviour
     private IEnumerator ShowShortCommentThenWrite(string shortComment, string diaryText)
     {
         yield return ShortCommentOnly(shortComment, shortCommentDuration);
-        yield return WriteDiaryRoutine(diaryText);
+        StartWriting(diaryText);
     }
 
     private IEnumerator ShortCommentOnly(string text, float duration)
@@ -125,123 +128,125 @@ public class DiaryUIManager : MonoBehaviour
     }
 
     // =========================
-    // DIARY WRITING
+    // DIARY SYSTEM
     // =========================
 
-    private IEnumerator WriteDiaryRoutine(string text)
+    void StartWriting(string text)
     {
+        // If diary already has content, append instead of reset
+        if (!string.IsNullOrEmpty(activeText))
+        {
+            activeText += "\n\n" + text; // spacing between entries
+        }
+        else
+        {
+            activeText = text;
+            activeIndex = 0;
+        }
+
         diaryPanel.SetActive(true);
         diaryAnimator.ResetTrigger("Close");
         diaryAnimator.SetTrigger("Open");
         diaryOpen = true;
 
-        int index = 0;
-
-        // Pre-fill pages with history
-        leftPageText.text = leftHistory;
-        rightPageText.text = rightHistory;
-
-        while (index < text.Length)
-        {
-            int leftRemaining = charactersPerPage - leftPageText.text.Length;
-            int rightRemaining = charactersPerPage - rightPageText.text.Length;
-
-            // If both pages full, flip spread
-            if (leftRemaining <= 0 && rightRemaining <= 0)
-            {
-                yield return FlipSpread();
-                leftRemaining = charactersPerPage;
-                rightRemaining = charactersPerPage;
-            }
-
-            // Decide where to start writing
-            if (leftPageText.text.Length == 0 && leftRemaining > 0)
-            {
-                // Left page is empty ? write here
-                int take = Mathf.Min(leftRemaining, text.Length - index);
-                string chunk = text.Substring(index, take);
-                yield return TypeText(leftPageText, chunk);
-                index += take;
-                leftHistory = leftPageText.text;
-            }
-            else if (rightPageText.text.Length == 0 && rightRemaining > 0)
-            {
-                // Left page has text ? write on right
-                int take = Mathf.Min(rightRemaining, text.Length - index);
-                string chunk = text.Substring(index, take);
-                yield return TypeText(rightPageText, chunk);
-                index += take;
-                rightHistory = rightPageText.text;
-            }
-            else
-            {
-                // Both pages have some text, flip spread
-                yield return FlipSpread();
-            }
-        }
+        ResumeWriting();
     }
 
 
+    void ResumeWriting()
+    {
+        if (writingRoutine != null)
+            StopCoroutine(writingRoutine);
 
+        writingRoutine = StartCoroutine(WriteRoutine());
+    }
 
-    private IEnumerator TypeText(TextMeshProUGUI textComponent, string text)
+    IEnumerator WriteRoutine()
     {
         isTyping = true;
 
-        foreach (char c in text)
+        while (activeIndex < activeText.Length)
         {
-            textComponent.text += c;
-            yield return new WaitForSeconds(diaryTypeSpeed);
+            // Left page
+            while (leftPageText.text.Length < charactersPerPage &&
+                   activeIndex < activeText.Length)
+            {
+                leftPageText.text += activeText[activeIndex++];
+                yield return new WaitForSeconds(diaryTypeSpeed);
+            }
+
+            // Right page
+            while (rightPageText.text.Length < charactersPerPage &&
+                   activeIndex < activeText.Length)
+            {
+                rightPageText.text += activeText[activeIndex++];
+                yield return new WaitForSeconds(diaryTypeSpeed);
+            }
+
+            // Pages full ? wait for D
+            if (activeIndex < activeText.Length)
+            {
+                isTyping = false;
+                yield break;
+            }
         }
 
         isTyping = false;
     }
 
-
-    private void ShowFullCurrentText()
+    void FinishTypingInstant()
     {
-        // Stops typewriter instantly, nothing more needed
+        StopCoroutine(writingRoutine);
+
+        while (leftPageText.text.Length < charactersPerPage &&
+               activeIndex < activeText.Length)
+        {
+            leftPageText.text += activeText[activeIndex++];
+        }
+
+        while (rightPageText.text.Length < charactersPerPage &&
+               activeIndex < activeText.Length)
+        {
+            rightPageText.text += activeText[activeIndex++];
+        }
+
         isTyping = false;
     }
 
     // =========================
-    // FLIP SPREAD
+    // PAGE FLIP
     // =========================
 
-    private IEnumerator FlipSpread()
+    IEnumerator FlipAndContinue()
     {
         diaryAnimator.ResetTrigger("Open");
         diaryAnimator.SetTrigger("Close");
         yield return new WaitForSeconds(closeAnimDuration);
 
-        // Clear pages and history for next spread
-        leftPageText.text = "";
-        rightPageText.text = "";
-        leftHistory = "";
-        rightHistory = "";
+        ClearPages();
 
         diaryAnimator.ResetTrigger("Close");
         diaryAnimator.SetTrigger("Open");
+
+        ResumeWriting();
     }
 
     // =========================
-    // CLOSE DIARY
+    // CLOSE
     // =========================
 
     public void CloseDiary()
     {
         diaryAnimator.ResetTrigger("Open");
         diaryAnimator.SetTrigger("Close");
-        diaryOpen = false;
 
+        diaryOpen = false;
         diaryPanel.SetActive(false);
     }
 
-    private void ClearPages()
+    void ClearPages()
     {
         leftPageText.text = "";
         rightPageText.text = "";
-        leftHistory = "";
-        rightHistory = "";
     }
 }
